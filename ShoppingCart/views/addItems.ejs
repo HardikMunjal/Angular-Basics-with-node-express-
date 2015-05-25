@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<title></title>
+ <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+ 
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+ 
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="javascript/AddProduct.js"></script>
+ 
+<link rel='stylesheet' href='stylesheets/style.css' />
+<link rel='stylesheet' href='stylesheets/FormTemplate.css' />
+<link rel='stylesheet' href='stylesheets/ContentLayout.css' />
+
+   
+
+<meta charset="UTF-8">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <img src="images/Capture.PNG" style="height:80px; width:180px;" alt="60x100"/>
+        </div>
+        <div>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/logout" class="btn btn-default">Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+    </nav>
+                
+                <section id="content">
+                    <section id="articles">
+                       <article>
+                            <div ng-controller="ToddlerCtrl">
+        <form action="formp" method="get">
+
+                            <div>
+                            <h2 style="color: #37D980">Add Your Catalog Products</h2>
+                            </div>
+
+    <div class="fieldSet">
+    <fieldset>
+    <legend>Adding New Products Portal</legend>
+
+     <p><label class="field" for="Id">
+     <span>*</span>
+     Product Id:</label>
+     <input class="span3" placeholder="Product Id" type="text" name="id" ng-model="Id">
+
+
+     <p><label class="field" for="ProductName">
+     <span>*</span>
+     Product Name:</label>
+     <input class="span3" placeholder="Product Name" type="text" name="pro_name" ng-model="ProductName">
+                                   
+
+    <p><label class="field" for="category">
+    <span>*</span>
+     Product MainCategory:</label>
+    <select ng-model="cat" ng-options="cat[0] as cat.MainCategory for cat in toddlers">
+    <option value=""></option>
+    </select>
+
+    <p><label class="field" for="cat2">
+    <span>*</span>
+    Category Type:</label>
+    <select ng-model="cat2" ng-options="cat2 as cat2.category[0].categoryName for cat2 in toddlers">
+    <option value=""></option>
+    </select>
+
+    <p><label class="field" for="category3">
+    <span>*</span>
+     Sub Category Type:</label>
+    <select ng-model="category3" ng-options="category3 as category3.category[0].subcategory[0].subcategoryName for category3 in toddlers">
+    <option value=""></option>
+    </select>
+
+
+
+    <p><label class="field" for="Name"><span>*</span>Name:</label><input type="text" name="Name"</p>
+    
+
+      <li  ng-repeat= "categories in data.subcategories">
+      {{categories.subcategory}}
+      </li>
+
+        <ul>
+
+     checking:       {{toddlers[0].category[0].categoryName}}
+
+    <li ng-repeat="toddler in foddlers">
+
+
+   1st repeat:   {{toddler.category[0]}}
+
+         <li ng-repeat="toddle in toddler.category">
+
+
+   2nd:   {{toddle.subcategory}}
+    </li>
+
+    </li>
+            </ul>
+    
+    </fieldset>
+    </div>
+
+
+
+</form>
+
+
+                           
+
+                         <table>
+        <tr>
+          <th>Category Name</th>
+          
+        </tr>
+        <tr ng-repeat="toddler in toddlers">
+
+          <td>{{toddler.MainCategory}}</td>
+          
+        </tr>
+      </table>
+
+    <select ng-model="activity" 
+    ng-options="activity as activity.MainCategory for activity in toddlers">
+    <option value=""></option>
+</select>
+
+     <select ng-model="activity2" 
+    ng-options="activity2 as activity2.category[0].categoryName for activity2 in toddlers">
+    <option value=""></option>
+</select>
+
+    <select ng-model="activity3" 
+    ng-options="activity3 as activity3.category[0].subcategory[0].subcategoryName for activity3 in toddlers">
+    <option value=""></option>
+</select>
+                                
+   
+                            <form id="well span8" action="action" enctype="multipart/form-data" method="POST">
+
+                               
+
+                                <div class="span3">
+                                    <label>Product Id</label> <input class="span3" placeholder="Product Id" type="text" name="id" ng-model="Id">
+                                    <br>
+                                    <label>Product Name</label> <input class="span3" placeholder="Product Name" type="text" name="pro_name" ng-model="ProductName">
+                                    <br>
+                                    <label>Product Category</label> <input class="span3" placeholder="Category Name" type="text" name="category" ng-model="ProductCategory">
+                                    <br>
+                                    <label>Product SubCategory</label> <input class="span3" placeholder="Subcategory Name" type="text" name="subcategory" ng-model="ProductSubCategory">
+                                    <br>
+                                    <label>Brand</label> <input class="span3" placeholder="Brand Name" type="text" name="brand" ng-model="Brand">
+
+
+                                    <div>
+                                        <label for="inputImage2">Add Product Image</label>
+                                        <input id="inputImage2" type="file" accept="image/*" name="image" image="image2" multiple="multiple" resize-max-height="300" resize-max-width="250" resize-quality="0.7" />
+                                    </div>
+
+
+
+                                  <label>Product Description</label> <input class="span3" placeholder="Product Description" type="text" name="description" ng-model="ProductDescription">  
+
+
+
+                                    <label>MRP</label> <input class="span3" placeholder="MRP" type="text" name="mrp" ng-model="MRP">
+                                    <label>Price</label> <input class="span3" placeholder="Price" type="text" name="price" ng-model="Price">
+
+                                    <label>Quantity</label> <input class="span3" placeholder="Quantity" type="text" name="quantity" ng-model="Quantity">
+                                    <label>Color</label> <input class="span3" placeholder="Color" type="text" name="color" ng-model="Color">
+                                   <label>Size</label> <input class="span3" placeholder="Size" type="text" name="size" ng-model="Size">
+
+                                    <label>Gender</label> <input class="span3" placeholder="Gender" type="text" name="gender" ng-model="Gender">
+
+
+                                    <label>Warranty Details</label> <input class="span3" placeholder="Warranty Details" type="text" name="waranty" ng-model="Waranty">
+
+                                    <label>Status</label> <input class="span3" placeholder="status" type="text" name="status" ng-model="status">
+
+
+                                    <input type="submit" value="Submit">
+                                </div>
+
+
+
+
+
+
+                            </form>
+
+
+                           </div>
+
+                           </article>
+                  
+                    </section>
+
+                   
+                </section>
+
+   
+   
+
+</body>
+</html>
