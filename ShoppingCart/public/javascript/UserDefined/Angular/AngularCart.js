@@ -33,18 +33,32 @@
        
        myApp.controller('MyCtrl',function($scope) {
     	   
+    	   $scope.foo = null;  
+    	   
+    	   $scope.doSomething = function () {
+    	   
+    	   $.cookie.json = true;
+
+
+
+
+      	     var user = [{ name: "name", age: 25 },{ name: "name", age: 25 }]
+
+    	     user.push({ name: $scope.foo, age: 25 });
+
+    	$.cookie('user', user);
+
+
+    	var currentUser = $.cookie('user');
+    	    
+    	alert('User name is ' + currentUser[2].name);
+    	 
     	   
     	   
     	   
-    	   
-    	   
-    	   
-    	   
-    	   
-    	    $scope.foo = null;
-    	    $scope.doSomething = function () {
-    	        alert("Hello, " + $scope.foo);
-    	    };
+    	 
+    	    
+    	      };
     	});
        
        
