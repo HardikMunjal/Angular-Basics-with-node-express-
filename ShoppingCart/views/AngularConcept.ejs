@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
 <head>
+
 <title>Angular Basics</title>
+
+<meta charset="UTF-8">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
 
 <!--Angular Library-->
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
@@ -12,12 +17,19 @@
     
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
- <script src="javascript/jquery-cookie.js"></script>
+<script src="javascript/jquery-cookie.js"></script>
 
 
-
- 
 <link rel='stylesheet' href='stylesheets/style.css' />
+
+    <link rel='stylesheet' href='stylesheets/MenuIcons.css' />
+    <link rel='stylesheet' href='stylesheets/GlobalPage.css' />
+    <link rel='stylesheet' href='stylesheets/MovingImages.css' />
+    <link rel='stylesheet' href='stylesheets/PanelShadow.css' />
+
+    <script src="javascript/UserDefined/CookieOnPageLoading.js"></script>
+    <script src="javascript/UserDefined/MovingImages.js"></script>
+     <script src="javascript/UserDefined/Angular/AngularCart.js"></script>
 
 <style type="text/css">
     
@@ -27,217 +39,10 @@
     
 </style>
 
-    <style type="text/css">
-        html, body {
-    margin:0;
-    padding:0;
-    height: 100%;
-}
-        
-       p { background-color: #808080;
-    color: Purple;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 8px 8px 0 0;}
-        
-        
-#background {
-    background : #000000 url("http://pascocountyflattorney.com/wp-content/uploads/2012/07/tokyo-blue-background-4547.jpg") no-repeat bottom left;
-    background-size: 100% 100%;
-    min-height:100%;
-}
-    </style>
-
-
-    <style> 
-        
-div #check{
-    width: 1375px;
-    height: 50px;
-    padding: 25px;
-    background-color: WhiteSmoke;
-    box-shadow: 10px 10px 5px grey;
-}
-</style>
-
-<meta charset="UTF-8">
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-
-
-    <script>
-
-
-  function setCookie(cname,cvalue,exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires=" + d.toGMTString();
-    document.cookie = cname+"="+cvalue+"; "+expires;
-}
-
-  function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0; i<ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1);
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-
-function checkCookie() {
-    var user=getCookie("username");
-    if (user != "") {
-        alert("Welcome again " + user);
-    } else {
-       user = prompt("Please enter your name:","");
-       if (user != "" && user != null) {
-           setCookie("username", user, 30);
-       }
-    }
-}
-
-</script>
-
-    <style>
-        
-ul#menu {
-    padding: 0;
-}
-
-ul#menu li {
-    display: inline;
-}
-
-ul#menu li a {
-    background-color: black;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 4px 4px 0 0;
-}
-
-ul#menu li a:hover {
-    background-color: orange;
-}
-        
-        
-       
-        div #A1{
-    margin-left:160px;
-}
-div #H1{
     
-    margin-left:280px;
-}
-        
-          div #R1{
-    margin-left:120px;
-}
-div #D1{
-    
-    margin-left:80px;
-}
-          div #I1{
-    margin-left:240px;
-}
-div #K1{
-    
-    margin-left:200px;
-}
-</style>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <script language='JavaScript' type='text/JavaScript'>
-<!--
-function reset1(){
-clearTimeout(my_time);
-document.getElementsByClassName("example").style.left= "500px";
-document.getElementsByClassName("example").style.top= "100px";
-document.getElementById("msg").innerHTML="";
-
-}
-
-
-
-function move_img(str) {
-
-      for(var i=0; i<6; i++){
-
-var x=document.getElementsByClassName('example')[i].offsetTop;
-x= x +100;
-document.getElementsByClassName('example')[i].style.top= x + "px";
-        }
-
-}
-
-function disp(){
-
-
-    for(var i=0; i<6; i++){
-
-
-         (function (i) {
-             setTimeout(function(){
-                 alert(i);
-var step=1; // Change this step value
-//alert("Hello");
-var y=document.getElementsByClassName('example')[i].offsetTop;
-var x=document.getElementsByClassName('example')[i].offsetLeft;
-if(y < 600+(2*i) ){y= y +step;
-document.getElementsByClassName('example')[i].style.top= y + "px"; // vertical movment
-}else{
-if(x < 800+(40*i)){x= x +step;
-document.getElementsByClassName('example')[i].style.left= x + "px"; // horizontal movment
-}
-}
-//////////////////////
-        }, 100 * i);
- 
-}
-        (i));
-        }
-
-}
-function timer(){
-    for(var i=0; i<6; i++){
-
-disp();
-
-
-        
-var y=document.getElementsByClassName('example')[i].offsetTop;
-
-        
-var x=document.getElementsByClassName('example')[i].offsetLeft;
-document.getElementById("msg").innerHTML="X: " + x + " Y : " + y
-my_time=setTimeout('timer()',2000);
-}
-}
-
-//-->
-</script>
-
-
-
-     
 </head>
+
 
 <body onload="checkCookie()">
 
@@ -247,41 +52,44 @@ my_time=setTimeout('timer()',2000);
         <div id="check"></div>
 
         <ul id="menu">
-  <li><a href="/html/default.asp">HTML</a></li>
-  <li><a href="/css/default.asp">CSS</a></li>
-  <li><a href="/js/default.asp">JavaScript</a></li>
-  <li><a href="/php/default.asp">PHP</a></li>
+  <li><a href="/DrakaPlatform">Why Draka</a></li>
+  <li><a href="/Stylised Menu">Menu</a></li>
+  <li><a href="/grid">Grid</a></li>
+  <li><a href="/3d">3d transformation</a></li>
 </ul> 
-        <ol>
-            <li>1</li>
-            <li>2</li>
-        </ol>
+       
 
 
 
-                     <form ng-submit="OnSubmit()" ng-controller="StartUpController">
+<form ng-submit="OnSubmit()" ng-controller="StartUpController">
 
 Starting: <input ng-change="computeNeeded()" ng-model="funding.startingEstimate">
 Recommendation: {{funding.needed}}
 
-                         <button>Fund mystartup</button>
+<button>Fund mystartup</button>
 </form>
                   
 
        
-     <div id="H1">   <img class="example" id="H" src=Images/H.gif  style="position:absolute; left: 500; top: 100; width: 30px; height: 40px;"></div>
+       <div id="H1">     <img class="example" id="H" src=Images/H.gif  style="position:absolute; left: 500; top: 100; width: 35px; height: 50px;"></div>
+       <div id="A1">     <img class="example" id="A" src=Images/A.gif  style="position:absolute; left: 500; top: 100; width: 30px; height: 40px;"></div> 
+       <div id="R1">     <img class="example" src=Images/R.gif  style="position:absolute; left: 500; top: 100; width: 30px; height: 40px;"> </div>
+       <div id="D1">     <img class="example" src=Images/D.gif  style="position:absolute; left: 500; top: 100; width: 30px; height: 40px;">  </div>
+       <div id="I1">     <img class="example" src=Images/I.gif  style="position:absolute; left: 500; top: 100; width: 30px; height: 40px;">  </div>
+       <div id="K1">     <img class="example" src=Images/K.gif  style="position:absolute; left: 500; top: 100; width: 30px; height: 40px;">  </div>
+       <div id="M1">     <img class="example" id="M" src=Images/M.gif  style="position:absolute; left: 500; top: 100; width: 35px; height: 50px;"></div>         
+       <div id="U1">     <img class="example" id="U" src=Images/U.gif  style="position:absolute; left: 500; top: 100; width: 30px; height: 40px;"></div> 
+       <div id="N1">     <img class="example" src=Images/N.gif  style="position:absolute; left: 500; top: 100; width: 30px; height: 40px;"> </div>
+       <div id="Z1">     <img class="example" src=Images/Z.gif  style="position:absolute; left: 500; top: 100; width: 30px; height: 40px;">  </div>
+       <div id="A2">     <img class="example" src=Images/A.gif  style="position:absolute; left: 500; top: 100; width: 30px; height: 40px;">  </div>
+       <div id="A3">     <img class="example" src=Images/A.gif  style="position:absolute; left: 500; top: 100; width: 30px; height: 40px;">  </div>
+       <div id="A4">     <img class="example" src=Images/A.gif  style="position:absolute; left: 500; top: 100; width: 30px; height: 40px;">  </div>
+       <div id="L1">     <img class="example" src=Images/L.gif  style="position:absolute; left: 500; top: 100; width: 30px; height: 40px;">  </div>
          
-   <div id="A1">    <img class="example" id="A" src=Images/A.gif  style="position:absolute; left: 500; top: 100; width: 30px; height: 40px;"></div> 
-     <div id="R1">     <img class="example" src=Images/R.gif  style="position:absolute; left: 500; top: 100; width: 30px; height: 40px;"> </div>
-         
-    <div id="D1">     <img class="example" src=Images/D.gif  style="position:absolute; left: 500; top: 100; width: 30px; height: 40px;">  </div>
-       <div id="I1">   <img class="example" src=Images/I.gif  style="position:absolute; left: 500; top: 100; width: 30px; height: 40px;">  </div>
-         
-       <div id="K1">  <img class="example" src=Images/K.gif  style="position:absolute; left: 500; top: 100; width: 30px; height: 40px;">  </div>
          
 <br><br><br><br>
-<input type=button onClick=timer() value='Start'>
-<input type=button onClick=reset1() value='Reset'>
+<input type=button onClick=timer() value='Draka Is Coming'>
+<input type=button onClick=reset1() value='Get Original'>
 <div id='msg'></div>
 
             
@@ -295,48 +103,46 @@ Recommendation: {{funding.needed}}
 
         <p>oops, jquery cookie</p>
 
-    <script>
+        <div ng-controller="MyCtrl">
+       <input type="text" ng-model="foo" placeholder="Enter something" />
+       <input type="button" ng-click="doSomething()" value="Send" ng-disabled="foo == null" />
+   </div>
+       
+
+<script>
 $(document).ready(function(){
     $("p").click(function(){
-        $.cookie("example", "foo", { expires: 7 }); 
-        alert( $.cookie("example") );
+
+
+        $.cookie.json = true;
+
+
+
+
+      
+
+     var user = [{ name: "name", age: 25 },{ name: "name", age: 25 }]
+
+     user.push({ name: "hardik", age: 25 });
+
+$.cookie('user', user);
+
+
+var currentUser = $.cookie('user');
+    
+alert('User name is ' + currentUser[2].name);
     });
 });
 </script>
 
 
-   
-   <script type="text/javascript">
-
-       var myApp = angular.module('myApp', []);
-
-
-       myApp.controller('StartUpController', function ($scope) {
 
 
 
-           $scope.funding = { startingEstimate: 0 };
-           computeNeeded = function () {
-               $scope.funding.needed = $scope.funding.startingEstimate * 10;
 
 
+     
 
-               $scope.OnSubmit = function () { window.alert("You are going to submit form") };
-
-           };
-           $scope.$watch('funding.startingEstimate', computeNeeded);
-       }
-          );
-
-
-       myApp.controller('DeathrayMenuController', function ($scope) {
-           $scope.isDisabled = false;
-           $scope.stun = function () {
-               // stun the target, then disable menu to allow regeneration
-               $scope.isDisabled = 'true';
-           };
-       });
-   </script>
         </div>
 </body>
 </html>
