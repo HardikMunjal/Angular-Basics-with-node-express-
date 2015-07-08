@@ -1,6 +1,17 @@
 /**
  * New node file
  */
+
+function ask(){
+	 var code = prompt("You need to take code from admin", "Enter Code");
+	    
+	    if (code === 'pokemon') {
+	    	
+	        timer();
+	        
+	    }
+}
+
 function reset1(){
 clearTimeout(my_time);
 document.getElementsByClassName("example").style.left= "500px";
@@ -8,6 +19,7 @@ document.getElementsByClassName("example").style.top= "100px";
 document.getElementById("msg").innerHTML="";
 
 }
+
 
 
 
